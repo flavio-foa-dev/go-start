@@ -11,7 +11,7 @@ Ao aprender uma nova linguagem de programação vai trazer diversos benefícios
 
 ### pontos de pegada conceitos
 
-1.  Go lang tem como mascote o guf.........
+1.  Go lang tem como mascote o Gopher,
 2.  Linguagem de programacao open source que tem objetivo de torna os devs mais produtivos
 3.  simplicidade produtividade
 4.  Expressiva concisa limpa eficiente
@@ -28,6 +28,7 @@ Ao aprender uma nova linguagem de programação vai trazer diversos benefícios
 16. Deteccao de Race Conditions
 17. paradigma" usa go way jeito do Go ser
 18. Ela tem 25 palavras chaves
+19. convencao de boas presticas (Lint por padrao)
 
 
 ### pontos de motivacao para a construcao Go lang
@@ -62,5 +63,5 @@ pasta-do-usuario/
 ### Topico 02 comamd
 
 1. go build arquivo   // cria exe
-2. go run arquivo     // cria exe roda o executavel
+2. go run arquivo     // esse comando compilamos e executamos o programa
 
