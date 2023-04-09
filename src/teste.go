@@ -5,38 +5,43 @@ import (
 	"net/http"
 	"os"
 	"reflect"
+	"time"
 )
+
+const monitoring = 10
+const delay = 5
 
 func main() {
 
 	getName()
-	opcao := getOpcao()
 
-	// if opcao == 1 {
-	// 	fmt.Println("Iniciando Programa")
-	// } else if opcao == 2 {
-	// 	fmt.Println("Iniciando logs")
-	// } else if opcao == 0 {
-	// 	fmt.Println("Saindo do Programa")
-	// } else {
-	// 	fmt.Println("Nao conheco esta opcao")
-	// }
+	for {
+		opcao := getOpcao()
 
-	switch opcao {
-	case 1:
-		statusSite()
-	case 2:
-		logsSite()
-	case 0:
-		fmt.Println("Saindo do Programa")
-		os.Exit(0)
-	default:
-		fmt.Println("Nao conheco este comando")
-		os.Exit(-1)
+		// if opcao == 1 {
+		// 	fmt.Println("Iniciando Programa")
+		// } else if opcao == 2 {
+		// 	fmt.Println("Iniciando logs")
+		// } else if opcao == 0 {
+		// 	fmt.Println("Saindo do Programa")
+		// } else {
+		// 	fmt.Println("Nao conheco esta opcao")
+		// }
+
+		switch opcao {
+		case 1:
+			verifySite()
+		case 2:
+			logsSite()
+		case 0:
+			fmt.Println("Saindo do Programa")
+			os.Exit(0)
+		default:
+			fmt.Println("Nao conheco este comando")
+			os.Exit(-1)
+		}
 	}
 
-	fmt.Println("o tipo da variavel e:", reflect.TypeOf(opcao))
-	fmt.Println("o endereco da variavel e:", &opcao)
 }
 
 func getName() {
@@ -61,15 +66,37 @@ func getOpcao() int {
 	return opcao
 }
 
-func statusSite() {
-	fmt.Println("Iniciando Monitoramento")
-	site := "https://www.google.com/oi"
+func statusSite(site string) {
+
 	response, _ := http.Get(site)
-	fmt.Println(response)
 	if response.StatusCode == 200 {
 		fmt.Println("Site", site, "foi carregado com sucesso")
+		fmt.Println("___")
+
 	} else {
 		fmt.Println("Site", site, "esta com problemas")
+		fmt.Println("___")
+
+	}
+}
+
+func verifySite() {
+	fmt.Println("Iniciando Monitoramento")
+	fmt.Println("___")
+
+	sitesURLs := []string{"https://www.google.com/oi",
+		"https://www.google.com/", "https://www.google.com/oi"}
+
+	// for i := 0; i < len(sitesURLs); i++ {
+	// 	fmt.Println(sitesURLs[i])
+	// }
+
+	for i := 0; i < monitoring; i += 1 {
+		for i, site := range sitesURLs {
+			fmt.Println("Monitorando", i+1, site)
+			statusSite(site)
+		}
+		time.Sleep(delay * time.Second)
 	}
 }
 
@@ -82,8 +109,8 @@ func logsSite() {
 	// 	fmt.Println(sitesURLs[i])
 	// }
 
-	for _, site := range sitesURLs {
-		fmt.Println(site)
+	for i, site := range sitesURLs {
+		fmt.Println("Monitorando", i+1, site)
 	}
 }
 
