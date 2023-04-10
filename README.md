@@ -65,3 +65,78 @@ pasta-do-usuario/
 1. go build arquivo   // cria exe
 2. go run arquivo     // esse comando compilamos e executamos o programa
 
+### Topico 03 Variaveis
+```
+exemplo em Java
+// declaração da  variável idade
+int idade;
+idade = 15;
+
+// imprime a idade
+System.out.println(idade);
+
+```
+
+```
+exe,plo em go
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    var (
+        idade  = 15
+        altura = 1.78
+        nome   = "Guilherme"
+    )
+    fmt.Println(nome, idade, altura)
+}
+```
+quando so declaramos a variavel e nao colocamos valor
+```
+----------------------------------------------
+| Tipo         | valor atribuído pelo Go     |
+|----------    |-------------------------    |
+| numérico     | 0                           |
+| booleano     | false                       |
+| string       | " "                         |
+----------------------------------------------
+```
+
+### Topico 04 POO
+- struct
+- formas de utilizar a struct: informando ou não os nomes dos campos.
+- entender o que são ponteiros
+- forma de utilizar a struct e criar um método
+
+
+
+### Topico 05 função receba um número indeterminado de parâmetros.
+Funções deste tipo são conhecidas em Go como variadic functions, ou função variádica.
+Rest parametrs do javascript parecido
+
+```
+package main
+
+import (
+    "fmt"
+)
+
+func Somando(numeros ...int) int {
+    resultadoDaSoma := 0
+    for _, numero := range numeros {
+        resultadoDaSoma += numero
+    }
+    return resultadoDaSoma
+}
+
+func main() {
+    fmt.Println(Somando(1))
+    fmt.Println(Somando(1,1))
+    fmt.Println(Somando(1,1,1))
+    fmt.Println(Somando(1,1,2,4))
+}
+
+```
