@@ -140,3 +140,11 @@ func main() {
 }
 
 ```
+
+ - como trabalhar com structs;
+ - referências;
+ - funções com múltiplos retornos,
+ - funções sem retornos;
+ - composição;
+ - divisão do projeto em pacotes;
+ - encapsulamento e interface, uma das maiores peculiaridades da linguagem Go
