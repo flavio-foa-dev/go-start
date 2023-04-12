@@ -148,3 +148,6 @@ func main() {
  - composição;
  - divisão do projeto em pacotes;
  - encapsulamento e interface, uma das maiores peculiaridades da linguagem Go
+ - composicao
+ 
+ 
