@@ -1,0 +1,50 @@
+{{define "Index"}}
+
+{{template "_head"}}
+
+{{template "_navBar"}}
+
+<body>
+    <div class="container">
+        <section class="card">
+            <div>
+                <table class="table table-striped table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{range .}}
+                        <tr>
+                            <td>{{.Name}}</td>
+                            <td>{{.Description}}</td>
+                            <td>{{.Price}}</td>
+                            <td>{{.Quantity}}</td>
+                            <td><a href="/edit?id={{.Id}}" class="btn btn-outline-warning">Editar</a></td>
+                            <td><button class="btn btn-outline-danger" onclick="onDelete('{{.Id}}')">Delete</button></td>
+
+                        </tr>
+                        {{end}}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <div class="card-footer">
+            <a href="/cadastrar" class="btn btn-primary mb-2">Cadastrar</a>
+        </div>
+    </div>
+</body>
+<script>
+    function onDelete(id) {
+        let isDeleted = confirm('Are you sure you want to delete this' + id);
+        if (isDeleted) {
+            window.location = "/delete?id=" + id;
+        }
+    }
+</script>
+</html>
+{{end}}
