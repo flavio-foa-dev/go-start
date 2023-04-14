@@ -1,4 +1,4 @@
-# go- start
+# go - start
 
 ## Motivacao
 Ao aprender uma nova linguagem de programação vai trazer diversos benefícios
