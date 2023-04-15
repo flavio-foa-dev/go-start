@@ -1,0 +1,12 @@
+### API Rest Golang
+
+go mod init <nome>
+pkgm
+API em go
+Uma requisição GET retornando um Json.
+
+pacote - gorila/max == go get -u github.com/gorilla/mux   // responsavel pelas routes
+pacote - gorm/ == go get -u gorm.io/gorm   // orm
+pacote   drive/postgres == go get gorm.io/driver/postgres // drive de connection
+pacote  - cors == go get -u github.com/gorilla/handlers  // cors de connection
+
