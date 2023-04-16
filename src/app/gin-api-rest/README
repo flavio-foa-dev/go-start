@@ -1,0 +1,9 @@
+### API Rest com Gin
+
+- Seguindo boas práticas de programação
+- ORM Gorm.
+- go mod init go-gin
+- $ go get -u github.com/gin-gonic/gin
+- go get -u gorm.io/gorm
+- docker-compose exec postgres sh
+- hostname -i
